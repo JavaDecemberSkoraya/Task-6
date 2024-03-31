@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cars Table</title>
+  <style>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    th, td {
+      border: 1px solid black;
+      padding: 8px;
+      text-align: left;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+  </style>
+</head>
+<body>
+
+<div th:if="${errorMessage}" class="alert alert-danger">
+  <strong>Error:</strong> <span th:text="${errorMessage}"></span>
+</div>
+
+
+<h2>Cars Table</h2>
+
+<table>
+  <thead>
+  <tr>
+    <th>Brand</th>
+    <th>Model</th>
+    <th>Year</th>
+  </tr>
+  <tr th:each="car : ${cars}">
+    <td>[[${car.car_brand}]]</td>
+    <td>[[${car.car_model}]]</td>
+    <td>[[${car.car_yer}]]</td>
+  </tr>
+  </thead>
+  <tbody>
+    <!-- Добавьте дополнительные строки, если необходимо -->
+  </tbody>
+</table>
